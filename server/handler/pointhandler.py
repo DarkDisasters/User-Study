@@ -1,9 +1,7 @@
 
 import tornado.web
 from tornado.options import options
-
-import pymongo
-from pymongo import MongoClient
+import url 
 
 import networkx as nx
 
@@ -26,6 +24,26 @@ import subprocess
 class IndexHandler(tornado.web.RequestHandler):
 	def get(self):
 		self.render("./template/index.html")
+	def post(self):
+		ltype = self.get_argument("name")
+		print("name", ltype)
+		if ltype == "loadQuestion":
+			self.redirect('/loadQuestion')	
+
+
+class TransferPageHandler(tornado.web.RequestHandler):
+	def post(self):
+		ltype = self.get_argument("name")
+		print("name", ltype)
+		if ltype == "loadQuestion":
+			self.redirect('/loadQuestion')
+
+class LoadQuestionHandler(tornado.web.RequestHandler):
+	def get(self):
+		print("getok")
+		self.render("./template/testpage.html",page_title = "我的博客",)
+		print("ok")
+		
 
 
 

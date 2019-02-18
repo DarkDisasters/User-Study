@@ -36,7 +36,9 @@ class MADB:
 			self._collection.insert(ma);
 		print('[save] end')
 
-   
+	def saveUserInfo(self, userInfo):
+		self._collection.insert_one(userInfo);
+		print("save ok")
 # #load raw imgs in dir to DB
 # def saveRawImgstoDB(dir):
 # 	print('[saveRawImgstoDB] Begin ', dir);

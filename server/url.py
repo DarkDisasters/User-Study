@@ -7,7 +7,10 @@ import sys
 # sys.setdefaultencoding('utf-8')
 
 from handler.pointhandler import IndexHandler
-# from handler.pointhandler import MAMindmapHandler
+from handler.pointhandler import LoadQuestionHandler
+from handler.pointhandler import TransferPageHandler
+from handler.dbHandler import SaveUserInfoHandler
+
 # from handler.pointhandler import MAMinardHandler
 # from handler.pointhandler import MAPlayfairHandler
 # from handler.pointhandler import MABoxplotHandler
@@ -19,13 +22,7 @@ from handler.pointhandler import IndexHandler
 
 url=[
 	(r'/', IndexHandler),
-    # (r'/MAMindmap', MAMindmapHandler),
-    # (r'/MAMinard', MAMinardHandler),
-    # (r'/MAFair', MAPlayfairHandler),
-    # (r'/MABoxplot', MABoxplotHandler),
-    # (r'/GACirclepacking', GACirclepackingHandler),
-    # (r'/GATreemap', GATreemapHandler),
-    # (r'/GDRect', GDRectHandler),
-    # (r'/GDScatterplot', GDScatterplotHandler),
-    # (r'/GDPath', GDPathHandler),
+    (r'/saveUserInfo', SaveUserInfoHandler),
+    (r'/transferpage', TransferPageHandler),
+    (r'/loadQuestion', LoadQuestionHandler),
 ]
