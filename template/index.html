@@ -2,17 +2,21 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+        <script src = "{{static_url('./static/lib/jquery.js')}}"></script>
     </head>
     <body>
+        
+        <script src = "{{static_url('./static/js/functionhub.js')}}"></script>
+
         <div>
-            <form method="post" action= "{{static_url('./js/infohandle.js')}}">
+            <form method="post" action="">
                 <table border="1" bordercolor= "steerblue" cellpadding="10px" cellspacing="0">
                     <caption>Questionare</caption> 
                     <tbody>
                         <tr>
                             <td>Age: </td>
                             <td>
-                                <input type = "text" name = "name"></input>
+                                <input type = "text" name = "age"></input>
                             </td>
                         </tr>
                         <tr>
@@ -48,9 +52,12 @@
                         </tr>
                     </tbody>
                 </table>
-                <input id = "submitbutton" type = "button" name = "submit" value="submit">
+                <input id = "submitbutton" type = "button" name = "submit" value="submit" onclick ='g_functionhub.submit()'>
             </form>
         </div>
         <!-- <img src= "{{static_url('./img/circle_e.png')}}" style="width: 800px"> -->
+        <script>
+            var g_functionhub = new FunctionHub()
+        </script>
     </body>
 </html>

@@ -25,7 +25,7 @@ import subprocess
 
 class IndexHandler(tornado.web.RequestHandler):
 	def get(self):
-		self.render("./index.html")
+		self.render("./template/index.html")
 
 
 
