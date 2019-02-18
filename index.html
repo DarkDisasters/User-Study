@@ -4,5 +4,53 @@
         <meta charset="utf-8">
     </head>
     <body>
+        <div>
+            <form method="post" action= "{{static_url('./js/infohandle.js')}}">
+                <table border="1" bordercolor= "steerblue" cellpadding="10px" cellspacing="0">
+                    <caption>Questionare</caption> 
+                    <tbody>
+                        <tr>
+                            <td>Age: </td>
+                            <td>
+                                <input type = "text" name = "name"></input>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Gender: </td>
+                            <td>
+                                <input type = "radio" name = "gender" value="F" checked="checked">Woman
+                                <input type = "radio" name = "gender" value = "M">Man
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Science/Engineering</td>
+                            <td>
+                                <input type = "radio" name = "studyinterest" value = "Humanities and Social sciences" checked="checked">Humanities and Social sciences
+                                <input type = "radio" name = "studyinterest" value = "Others">Others
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Academic Level</td>
+                            <td>
+                                <input type = "radio" name = "academiclevel" value = "Undergraduate" checked="checked">Undergraduate
+                                <input type = "radio" name = "academiclevel" value = "Post graduate (MSc, PhD)">Post graduate (MSc, PhD)
+                                <input type = "radio" name = "academiclevel" value = "Other">Other
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Assess your experience in Data Visualization</td>
+                            <td>
+                                <input type = "radio" name = "experience" value = "None" checked="checked">None
+                                <input type = "radio" name = "experience" value = "Little">Little
+                                <input type = "radio" name = "experience" value = "Medium or pretty good">Medium or pretty good
+                                <input type = "radio" name = "experience" value = "Very good">Very good
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <input id = "submitbutton" type = "button" name = "submit" value="submit">
+            </form>
+        </div>
+        <!-- <img src= "{{static_url('./img/circle_e.png')}}" style="width: 800px"> -->
     </body>
 </html>
