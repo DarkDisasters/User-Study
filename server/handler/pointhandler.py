@@ -28,7 +28,7 @@ class IndexHandler(tornado.web.RequestHandler):
 		ltype = self.get_argument("name")
 		print("name", ltype)
 		if ltype == "loadQuestion":
-			self.redirect('/loadQuestion')	
+			self.redirect('./loadQuestion')	
 
 
 class TransferPageHandler(tornado.web.RequestHandler):
@@ -36,7 +36,10 @@ class TransferPageHandler(tornado.web.RequestHandler):
 		ltype = self.get_argument("name")
 		print("name", ltype)
 		if ltype == "loadQuestion":
+			# self.render("./template/index.html",page_title = "我的博客",)
+			# print("transferpage ok")
 			self.redirect('http://localhost:4000/loadQuestion')
+			
 
 class LoadQuestionHandler(tornado.web.RequestHandler):
 	def get(self):
