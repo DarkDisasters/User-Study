@@ -16,7 +16,6 @@ lSendUrl = function(PostType, Url, formData, successPaperState, self){
         xmlhttp.send(null)
     }
     else{
-        console.log("formData", formData)
         $.ajax({
             url: Url,
             type: "POST",

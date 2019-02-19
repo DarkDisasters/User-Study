@@ -47,8 +47,8 @@ function FunctionHub(){
             window.alert("empty age")
         }
         else{
-            // this.saveUserInfo()
-            this.loadQuestion()
+            this.saveUserInfo()
+            // this.loadQuestion()
         }
         console.log("age", this._age)
         console.log("age", this._gender)
@@ -56,6 +56,14 @@ function FunctionHub(){
         console.log("age", this._academiclevel)
         console.log("experience", this._experience)
 
+    }
+
+    this.loadimgpage = function(){
+        var self = this;
+        var formData = new FormData();
+        formData.append("name", "loadimgpage")
+        var url = "http://localhost:4000/loadQuestion";
+        lSendUrl("POST", url, formData, self.successLoad)
     }
 
     this._init()
