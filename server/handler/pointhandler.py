@@ -36,7 +36,7 @@ class TransferPageHandler(tornado.web.RequestHandler):
 		ltype = self.get_argument("name")
 		print("name", ltype)
 		if ltype == "loadQuestion":
-			self.redirect('/loadQuestion')
+			self.redirect('http://localhost:4000/loadQuestion')
 
 class LoadQuestionHandler(tornado.web.RequestHandler):
 	def get(self):
