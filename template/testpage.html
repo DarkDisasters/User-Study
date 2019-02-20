@@ -32,8 +32,25 @@
         </div>
         
         <script>
+            function initImgList(){
+                getImgList();
+            }
+
+            function getImgList(){
+                var formData = new FormData()
+                var url = "http://localhost:4000/getImgList"
+                lSendUrl('POST', url, formData, successGet)
+            }
+
+            function successGet(){
+                
+            }
+        </script>
+
+        <script>
             
             var g_functionhub = new FunctionHub()
+            initImgList()
         </script>
     </body>
 </html>

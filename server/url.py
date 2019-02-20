@@ -9,6 +9,7 @@ import sys
 from handler.pointhandler import IndexHandler
 from handler.pointhandler import LoadQuestionHandler
 from handler.pointhandler import ImgStudyPageHandler
+from handler.pointhandler import GetImgListHandler
 from handler.dbHandler import SaveUserInfoHandler
 from handler.dbHandler import SaveAnswerInfoHandler
 
@@ -20,4 +21,5 @@ url=[
     (r'/loadQuestion', LoadQuestionHandler),
     (r'/imgstudypage', ImgStudyPageHandler),
     (r'/saveanswerinfo', SaveAnswerInfoHandler),
+    (r'/getImgList', GetImgListHandler),
 ]

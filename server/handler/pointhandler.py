@@ -28,19 +28,6 @@ class IndexHandler(tornado.web.RequestHandler):
 	def post(self):
 		self.redirect('./loadQuestion')	
 
-
-# class TransferPageHandler(tornado.web.RequestHandler):
-
-# 	def post(self, *args, **kwargs):
-# 		# ltype = self.get_argument("name")
-# 		# print("name", ltype)
-# 		# if ltype == "loadQuestion":
-# 		# self.render("./template/testpage.html",page_title = "我的博客",)
-# 			# print("transferpage ok")
-# 		self.redirect('/loadQuestion')
-# 	get = post
-			
-
 class LoadQuestionHandler(tornado.web.RequestHandler):
 	def get(self, *args, **kwargs):
 		self.render("./template/testpage.html",page_title = "我的博客",)
@@ -56,8 +43,19 @@ class ImgStudyPageHandler(tornado.web.RequestHandler):
 		self.render("./template/imgstudypage.html")
 		print("loadimgpage ok")
 
+class GetImgListHandler(tornado.web.RequestHandler):
+	def post(self):
+		imgList = glob.glob("./img/*.jpg");
+		
+		x = {}
 
+		for img in imgList:
+			imgName = basename(img).split(".")[0]
+			x[imgName] = img;
+		print('img list', imgList[0: 7], len(imgList))
 
+		self.set_header('Access-Control-Allow-Origin', "*")
+		self.write({'img', x})
 
 
 
