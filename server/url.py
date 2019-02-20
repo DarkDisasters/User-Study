@@ -8,16 +8,16 @@ import sys
 
 from handler.pointhandler import IndexHandler
 from handler.pointhandler import LoadQuestionHandler
-# from handler.pointhandler import TransferPageHandler
 from handler.pointhandler import ImgStudyPageHandler
 from handler.dbHandler import SaveUserInfoHandler
+from handler.dbHandler import SaveAnswerInfoHandler
 
 
 
 url=[
 	(r'/', IndexHandler),
     (r'/saveUserInfo', SaveUserInfoHandler),
-    # (r'/transferpage', TransferPageHandler),
     (r'/loadQuestion', LoadQuestionHandler),
     (r'/imgstudypage', ImgStudyPageHandler),
+    (r'/saveanswerinfo', SaveAnswerInfoHandler),
 ]

@@ -37,8 +37,40 @@ class MADB:
 		print('[save] end')
 
 	def saveUserInfo(self, userInfo):
-		self._collection.insert_one(userInfo);
+		useridobject = self._collection.insert_one(userInfo);
+		global userid 
+		userid = useridobject.inserted_id
+		record = self._collection.find_one({"_id": userid})
 		print("save ok")
+		print("userid madb", userid)
+		print("record", record)
+		return userid;
+
+	def saveAnswerInfo(self, answerinfo):
+		record = self._collection.find_one({"_id": userid})
+		if "answerinfo" in record:
+			answerinfoindb = record["answerinfo"]
+			answerinfoindb.append(answerinfo)
+			self._collection.update_one({"_id":userid}, {"$set": {"answerinfo": answerinfoindb}});
+		else:
+			answerinfoarray = []
+			answerinfoarray.append(answerinfo)
+			self._collection.update_one({"_id":userid}, {"$set": {"answerinfo": answerinfoarray}});
+		# print("recordd", record)
+		# if(record != None):
+		
+		print("save answer ok");
+
+  #  	def saveAInfo(self, userInfo):
+		# record = self._collection.find_one({"username": userInfo["username"]})
+		# print("record", record)
+		# if(record != None):
+		# 	print("record exist")
+		# 	passwd = userInfo["password"]
+		# 	self._collection.update_one({"username": userInfo["username"]},{"$set": {"password": passwd}})
+		# else:
+		# 	self._collection.insert_one(userInfo)
+		# print("save ok")
 # #load raw imgs in dir to DB
 # def saveRawImgstoDB(dir):
 # 	print('[saveRawImgstoDB] Begin ', dir);

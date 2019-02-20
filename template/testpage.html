@@ -4,7 +4,9 @@
         <meta charset="utf-8">
         <script src = "{{static_url('./static/lib/jquery.js')}}"></script>
     </head>
-    <body onload = "loadpageTime()">
+    <body onload = "g_functionhub.loadPageTime()">
+
+        <script src = "{{static_url('./static/js/idhandler.js')}}"></script>
         <script src = "{{static_url('./static/js/lfunctionhub.js')}}"></script>
         <script src = "{{static_url('./static/js/functionhub.js')}}"></script>
 
@@ -14,52 +16,23 @@
 
         <div style="position: absolute; float: right; right: 15%">
             <span>
-                <p>Question</p>
+                <p id = "question">Question1</p>
             </span>
 
             <span>
-                <input type = "radio" name = "answer" value = "">1
-                <input type = "radio" name = "answer" value = "">2
-                <input type = "radio" name = "answer" value = "">3
+                <input type = "radio" name = "answer" value = "1">1
+                <input type = "radio" name = "answer" value = "2">2
+                <input type = "radio" name = "answer" value = "3">3
             </span>
             </br></br>
 
             <span>
-                <input id = "loadimgpage" type = "button" name = "loadimgpage" value = "next" onclick='nextbuttontime()'>
+                <input id = "loadimgpage" type = "button" name = "loadimgpage" value = "next" onclick='g_functionhub.nextButton()'>
             </span>
         </div>
-
-        <script>
-
-            function loadpageTime(){
-                timestart = new Date()
-            }
-
-            function nextbuttontime(){
-                console.log("timestart", timestart)
-                timeend = new Date();
-                var intervalms = (timeend - timestart);
-                var days = Math.floor(intervalms/(24*3600*1000))
-                
-                var level1 = intervalms%(24*3600*1000)
-                var hours = Math.floor(level1/(3600*1000))
-
-                var level2 = intervalms%(3600*1000)
-                var minutes = Math.floor(level2/(60*1000))
-
-                var level3 = intervalms%(60*1000)
-                var seconds = Math.round(level3/1000)
-
-                var interval = minutes*60 + seconds
-                console.log("timeend", timeend)
-                console.log("interval",interval)
-                timestart = timeend
-            }
-
-        </script>
         
         <script>
-            var timestart,timeend
+            
             var g_functionhub = new FunctionHub()
         </script>
     </body>
